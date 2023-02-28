@@ -468,7 +468,7 @@ print(velocities)
 # and uses these samples to estimate the function $f$.
 
 # %%
-%matplotlib inline
+
 import matplotlib.pyplot as plt
 
 # Create data
@@ -522,7 +522,6 @@ plt.title('Linear regression');
 # %%
 # Insert your code here.
 
-%matplotlib inline
 import matplotlib.pyplot as plt
 import numpy as np
 import math
@@ -604,7 +603,6 @@ plt.xlabel('Time Step');
 # %%
 # Insert your code here.
 
-%matplotlib inline
 import matplotlib.pyplot as plt
 import numpy as np
 import math
