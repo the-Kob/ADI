@@ -92,3 +92,5 @@ u_star = stationary_dist(M)
 
 plot.hist(traj, range(0, nS + 1), density=True, edgecolor = 'black', align='left') # empirical distribution
 plot.scatter(range(0, nS), u_star, color='red') # theoretical distribution
+
+plot.show()
