@@ -6,7 +6,7 @@ import numpy as np
 # M = (X, A, P, c, 0.99)
 
 
-def value_iteration(M, eps):
+def policy_iteration(M, eps):
     X = M[0]
     A = M[1]
     P = M[2]
@@ -24,9 +24,9 @@ def value_iteration(M, eps):
 
         # Policy evaluation
         cpi = np.sum(c * pol, axis=1, keepdims=True)
-        Ppi = pol[:, 0, None] * P[a]
+        Ppi = pol[:, 0, None] * P[0]
 
-        J = np.linalg.inv(np.eye(len(X))- gamma * Ppi.dot(cpi))
+        J = np.linalg.inv(np.eye(len(X))- gamma * Ppi).dot(cpi)
 
         # Compute Q values
         for a in range(len(A)):
@@ -35,7 +35,7 @@ def value_iteration(M, eps):
         # Compute greedy policy
         Qmin = np.min(Q, axis=1, keepdims=True)
 
-        pnew = np.isclose(0, Qmin, atol=1e-8, rtol=1e-8).astype(int)
+        pnew = np.isclose(Q, Qmin, atol=1e-8, rtol=1e-8).astype(int)
         pnew = pnew / pnew.sum(axis=1, keepdims=True)
 
         # Compute stopping condition
